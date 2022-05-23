@@ -4,30 +4,30 @@ import re
 
 class Stack:
     def __init__(self):
-        self.mStackElements = []
+        self._elements = []
 
     def push(self, e):
-        self.mStackElements.append(e)
+        self._elements.append(e)
 
     def pop(self):
-        assert len(self.mStackElements) > 0, "popping empty stack"
-        self.mStackElements = self.mStackElements[:-1]
+        assert len(self._elements) > 0, "popping empty stack"
+        self._elements = self._elements[:-1]
 
     def top(self):
-        assert len(self.mStackElements) > 0, "top of empty stack"
-        return self.mStackElements[-1]
+        assert len(self._elements) > 0, "top of empty stack"
+        return self._elements[-1]
 
     def is_empty(self):
-        return self.mStackElements == []
+        return self._elements == []
 
     def copy(self):
-        C = Stack()
-        C.mStackElements = self.mStackElements[:]
-        return C
+        c = Stack()
+        c._elements = self._elements[:]
+        return c
 
     def __str__(self):
-        C = self.copy()
-        result = C._convert()
+        c = self.copy()
+        result = c._convert()
         return result
 
     def _convert(self):
