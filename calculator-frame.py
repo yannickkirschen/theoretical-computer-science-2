@@ -38,11 +38,11 @@ class Stack:
         return self._convert() + ' ' + str(t) + ' |'
 
 
-def create_stack(l):
+def create_stack(from_list):
     s = Stack()
-    n = len(l)
+    n = len(from_list)
     for i in range(n):
-        s.push(l[i])
+        s.push(from_list[i])
     return s
 
 
@@ -104,8 +104,7 @@ def tokenize(s):
               e             |
               pi
               '''
-    l = [to_float(t) for t in re.findall(regex, s, flags=re.VERBOSE) if not is_white_space(t)]
-    return list(reversed(l))
+    return list(reversed([to_float(t) for t in re.findall(regex, s, flags=re.VERBOSE) if not is_white_space(t)]))
 
 
 def precedence(op):
