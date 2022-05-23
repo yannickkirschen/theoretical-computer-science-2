@@ -112,7 +112,7 @@ def precedence(op):
     if op in ('+', '-'):
         return 1
 
-    if op in ('*', '/', '%'):
+    if op in ('*', '/'):
         return 2
 
     if op == '**':
@@ -134,7 +134,7 @@ def is_const_operator(op):
 
 
 def is_left_associative(op):
-    if op in ('+', '-', '*', '/', '%', 'sin', 'cos', 'tan', 'asin', 'acos', 'atan', 'log', 'sqrt', 'exp'):
+    if op in ('+', '-', '*', '/', 'sin', 'cos', 'tan', 'asin', 'acos', 'atan', 'log', 'sqrt', 'exp'):
         return True
 
     if op in ('**',):
@@ -249,9 +249,7 @@ class Calculator:
             elif op == '*':
                 result = lhs * rhs
             elif op == '/':
-                result = lhs // rhs
-            elif op == '%':
-                result = lhs % rhs
+                result = lhs / rhs
             elif op == '**':
                 result = lhs ** rhs
 
