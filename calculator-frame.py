@@ -134,10 +134,10 @@ def is_const_operator(op):
 
 
 def is_left_associative(op):
-    if op in ('+', '-', '*', '/', 'sin', 'cos', 'tan', 'asin', 'acos', 'atan', 'log', 'sqrt', 'exp'):
+    if op in ('+', '-', '*', '/'):
         return True
 
-    if op in ('**',):
+    if op in ('**', 'sin', 'cos', 'tan', 'asin', 'acos', 'atan', 'log', 'sqrt', 'exp'):
         return False
 
     assert False, f'unknown operator {op}'
